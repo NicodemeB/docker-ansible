@@ -10,8 +10,18 @@ docker build -t ansible:debian9 .
 ````bash
 
 docker run --name ansible --rm -v ${PWD}:/ansible -v ~/.ssh/:/root/.ssh/ \
-	-it ansible:debian9 ansible-playbook \
+	-it ansible:debian9 ansible \
 	-i <YOUR_INVENTORY>  <YOUR_HOST_ON_INVENTORY> -m ping \
 	--forks 1
 
+````
+
+### Run paybook
+
+````bash
+
+docker run --name ansible --rm -v ${PWD}:/ansible -v ~/.ssh/:/root/.ssh/ \
+        -it ansible:debian9 ansible-playbook \
+        -i <YOUR_INVENTORY>  >YOUR_PLAYBOOK>  \
+        --forks 1
 ````
